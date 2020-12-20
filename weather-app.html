@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather Wireframe</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 id=city>
+            This week in Orlando
+        </h1>
+        <h3 class="week">
+            12/07-12/13
+        </h3>
+
+
+        <form class="search-form" id="search-form">
+            <div class="row">
+                <div class="col-4">
+                    <input type="search" placeholder="Search a city" autofocus="on" autocomplete="off" id="city-input" class="form-control shadow-sm" />
+                </div>
+
+                <div class="col-2">
+
+                    <button type="button" class="btn btn-primary btn-sml w-100" id=city-input>
+                Search
+                </button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-success btn-sml w-100" id="current-location">
+                    Current
+                </button>
+                    </button>
+
+                </div>
+            </div>
+
+        </form>
+
+
+        <hr />
+        <div class="temperature">
+            <div class="row">
+                <div class="col-2">
+                    <h6>Tomorrow</h6>
+                    <div class="row">
+                        <div class="col-2">
+                            ⛅ High 78°
+                            <br /> Low 59°
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>Wednesday</h6>
+                    <div class="row">
+                        <div class="col-2">
+                            ⛅ High 78°
+                            <br /> Low 61°
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>Thrusday</h6>
+                    <div class="row">
+                        <div class="col-2">
+                            🌤 High 80°
+                            <br /> Low 61°
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>Friday</h6>
+                    <div class="row">
+                        <div class="col-2">
+                            🌤 High 80°
+                            <br /> Low 63°
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>
+                        Saturday
+                    </h6>
+                    <div class="row">
+                        <div class="col-2">
+                            🌤 High 81°
+                            <br /> Low 63°
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>
+                        Sunday
+                    </h6>
+
+                    <div class="row">
+                        <div class="col-2">
+                            ⛅ High 81°
+                            <br /> Low 62°
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <h3 class="today">
+            Today
+            <small class="text-muted" id="nowDate">November 23, 2020 16:37</small>
+        </h3>
+        <hr />
+        <div class="temperature" id="time">
+            <div class="row">
+                <div class="col-2">
+                    <h6>Now</h6>
+                    <div class="row">
+                        <div class="col-2">
+                            <span>
+                ⛅ 71°F <a href="#" id="fahrenheit-link"></a>
+              </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>17</h6>
+                    <div class="row">
+                        <div class="col-2">
+                            <span>
+                🌤 69°F <a href="#" id="fahrenheit-link"></a>
+              </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>17:26</h6>
+                    <div class="row">
+                        <div class="col-2">
+                            🌔 Sunset
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>18</h6>
+                    <div class="row">
+                        <div class="col-2">
+                            <span>
+                🌓 69°F <a href="#" id="fahrenheit-link"></a>
+                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>
+                        19
+                    </h6>
+                    <div class="row">
+                        <div class="col-2">
+                            <span>
+                🌒 68°F <a href="#" id="fahrenheit-link"></a>
+                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h6>
+                        20
+                    </h6>
+
+                    <div class="row">
+                        <div class="col-2">
+                            <span>
+                🌑 67°F <a href="#" id="fahrenheit-link"></a>
+                </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">CHANCE OF RAIN</h6>
+                    <p class="card-text">0%</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">HUMIDITY</h6>
+                    <p class="card-text">71%</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">UV INDEX</h6>
+                    <p class="card-text">0</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/script.js"></script>
+</body>
+
+</html>

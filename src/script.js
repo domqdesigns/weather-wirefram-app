@@ -1,0 +1,50 @@
+function search(event) {
+    event.preventDefault();
+    let h1 = document.querySelector("h1");
+    h1.innerHTML = "This week in " + searchForm;
+    let cityInput = document.querySelector("#city-input");
+    h1.innerHTML = "This week in " + cityInput.value;
+}
+let searchForm = document.querySelector("#search-form");
+
+searchForm.addEventListener("submit", search);
+
+let now = new Date();
+let h3 = document.querySelector("small");
+let date = now.getDate();
+let hour = now.getHours();
+if (hour < 10) {
+    hour = "0${hour}";
+}
+let mins = now.getMinutes();
+if (mins < 10) {
+    mins = "0" + mins;
+}
+h3.innerHTML = "December " + date + ", 2020 " + hour + ":" + mins;
+
+function showPosition(position) {
+    console.log(position.coords.latitude)
+}
+
+function getCurrentPosition() {
+    navigator.geolocation.getCurrentPosition(showPosition)
+
+    let currentCity = document.querySelector("#city");
+    currentCity.innerHTML = ('This week in ${city}');
+
+}
+
+let button = document.querySelector("#current-location");
+button.addEventListener("click", getCurrentPosition);
+
+let apiKeyHourly = "fb19ad2cc7b8c692bbffb71e9343e318";
+let apiUrlHourly = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=Paris&appid=b19ad2cc7b8c692bbffb71e9343e318&units=imperial";
+
+function showTemperature(response) {
+    let temperature = Math.round(response.data.main.temp);
+    let hourlyTemp = document.querySelector("#fahrenheit-link");
+    hourlyTemp.innerHTML = temperature + "°F";
+
+}
+
+axios.get(apiUrlHourly).then(showTemperature);
