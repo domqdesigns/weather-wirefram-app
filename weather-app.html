@@ -29,164 +29,46 @@
 
                 <div class="col-2">
 
-                    <button type="button" class="btn btn-primary btn-sml w-100" id=city-input>
+                    <button type="submit" class="btn btn-primary btn-sml w-100" id=city-input>
                 Search
                 </button>
                 </div>
                 <div class="col-2">
-                    <button class="btn btn-success btn-sml w-100" id="current-location">
-                    Current
-                </button>
-                    </button>
-
+                    <button class="btn btn-success btn-sml w-100" id="current-location-button">
+                    Current</button>
                 </div>
+
             </div>
+
+
+
+
 
         </form>
-
-
         <hr />
-        <div class="temperature">
-            <div class="row">
-                <div class="col-2">
-                    <h6 id="date">Tuesday</h6>
-                    <div class="row">
-                        <div class="col-2">
-                            ⛅ High 78°
-                            <br /> Low 59°
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6 id="date">Wednesday</h6>
-                    <div class="row">
-                        <div class="col-2">
-                            ⛅ High 78°
-                            <br /> Low 61°
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6 id="date">Thrusday</h6>
-                    <div class="row">
-                        <div class="col-2">
-                            🌤 High 80°
-                            <br /> Low 61°
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6 id="date">Friday</h6>
-                    <div class="row">
-                        <div class="col-2">
-                            🌤 High 80°
-                            <br /> Low 63°
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6 id="date">
-                        Saturday
-                    </h6>
-                    <div class="row">
-                        <div class="col-2">
-                            🌤 High 81°
-                            <br /> Low 63°
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6 id="date">
-                        Sunday
-                    </h6>
-
-                    <div class="row">
-                        <div class="col-2">
-                            ⛅ High 81°
-                            <br /> Low 62°
-                        </div>
+        <h1 id="city"></h1>
+        <ul>
+            <li id="date"></li>
+            <li id="description"></li>
+        </ul>
+        <div class="row">
+            <div class="col-6">
+                <div class="clearfix">
+                    <div class="float-left">
+                        <span class="temperature" id="temperature"></span
+                ><span class="units">°C</span>
                     </div>
                 </div>
             </div>
-        </div>
-        <hr />
-        <h3 class="today">
-            Today
-            <small class="text-muted" id="nowDate">November 23, 2020 16:37</small>
-        </h3>
-        <hr />
-        <div class="temperature" id="time">
-            <div class="row">
-                <div class="col-2">
-                    <h6>Now</h6>
-                    <div class="row">
-                        <div class="col-2">
-                            <span>
-                ⛅ <span id=temp>71</span>°F
-                            <a href="#" id="fahrenheit-link"></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6>17</h6>
-                    <div class="row">
-                        <div class="col-2">
-
-                            🌤 <span id=temp>69</span>°F
-                            <a href="#" id="fahrenheit-link"></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6>17:26</h6>
-                    <div class="row">
-                        <div class="col-2">
-                            🌔 Sunset
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6>18</h6>
-                    <div class="row">
-                        <div class="col-2">
-
-                            🌓 <span id=temp>69</span>°F
-                            <a href="#" id="fahrenheit-link"></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6>
-                        19
-                    </h6>
-                    <div class="row">
-                        <div class="col-2">
-
-                            🌒 <span id=temp>68</span>°F
-                            <a href="#" id="fahrenheit-link"></a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h6>
-                        20
-                    </h6>
-
-                    <div class="row">
-                        <div class="col-2">
-
-                            🌑 <span id=temp>67</span>°F
-                            <a href="#" id="fahrenheit-link"></a>
-
-                        </div>
-                    </div>
-                </div>
+            <div class="col-6">
+                <ul>
+                    <li>Humidity: <span id="humidity"></span>%</li>
+                    <li>Wind: <span id="wind"></span> km/h</li>
+                </ul>
             </div>
         </div>
+
+
         <hr />
         <div class="card-group">
             <div class="card">
