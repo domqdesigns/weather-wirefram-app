@@ -1,14 +1,27 @@
-function search(event) {
-    event.preventDefault();
-    let h1 = document.querySelector("h1");
-    h1.innerHTML = "This week in " + searchForm;
-    let cityInput = document.querySelector("#city-input");
-    h1.innerHTML = "This week in " + cityInput.value;
+function formatDate(date) {
+    let hours = date.getHours();
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
 
+    let dayIndex = date.getDay();
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ];
+    let day = days[dayIndex];
+
+    return `${day} ${hours}:${minutes}`;
 }
-let searchForm = document.querySelector("#search-form");
-
-searchForm.addEventListener("submit", search);
 
 let now = new Date();
 let h3 = document.querySelector("small");
@@ -21,45 +34,74 @@ let mins = now.getMinutes();
 if (mins < 10) {
     mins = "0" + mins;
 }
-h3.innerHTML = "December " + date + ", 2020 " + hour + ":" + mins;
+let currentDate = document.querySelector("#date");
+currentDate.innerHTML = "December " + date + ", 2020 " + hour + ":" + mins;
 
 
+function displayWeatherCondition(response) {
+    document.querySelector("#city").innerHTML = response.data.name;
+    document.querySelector("#temperature").innerHTML = Math.round(
+        response.data.main.temp
+    );
 
-
-
-
-
-function showTemperature(response) {
-    document.querySelectorAll("#temp").innerHTML = Math.round(response.data.main.temp);
-    document.querySelector("#humidity").innerHTML = response.data.main.humiditiy;
-
+    document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+    document.querySelector("#wind").innerHTML = Math.round(
+        response.data.wind.speed
+    );
+    document.querySelector("#description").innerHTML =
+        response.data.weather[0].main;
 }
 
-
 function searchCity(city) {
-    let apiKey = "65b7bd3ec9f1326a6935f2c5c17f8047";
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(showTemperature);
+    axios.get(apiUrl).then(displayWeatherCondition);
 }
 
 function handleSubmit(event) {
     event.preventDefault();
-    let city = document.querySelector("#cityInput").value;
+    let city = document.querySelector("#city-input").value;
     searchCity(city);
 }
 
 function searchLocation(position) {
-    let apiKey = "65b7bd3ec9f1326a6935f2c5c17f8047";
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
-    position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+    position.coords.latitude
+  }&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
-    axios.get(apiUrl).then(showTemperature);
+    axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-function getCurrentPosition(event) {
+function getCurrentLocation(event) {
     event.preventDefault();
-    navigator.geolocation.getCurrentPosition(searchLocation)
+    navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let currentButton = document.querySelector("#current-location");
-currentButton.addEventListener("click", getCurrentPosition);
+function convertToFahrenheit(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = 66;
+}
+
+function convertToCelsius(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = 19;
+}
+
+let dateElement = document.querySelector("#date");
+let currentTime = new Date();
+dateElement.innerHTML = formatDate(currentTime);
+
+
+let searchForm = document.querySelector("#search-form");
+let h1 = document.querySelector("h1");
+h1.innerHTML = "This week in " + searchForm;
+searchForm.addEventListener("submit", handleSubmit);
+
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+searchCity("Orlando");
