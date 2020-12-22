@@ -35,6 +35,7 @@ function getCurrentPosition() {
 }
 
 let button = document.querySelector("#current-location");
+event.preventDefault();
 button.addEventListener("click", getCurrentPosition);
 
 let apiKeyHourly = "fb19ad2cc7b8c692bbffb71e9343e318";
