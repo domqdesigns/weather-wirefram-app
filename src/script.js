@@ -34,11 +34,12 @@ weekdays.forEach(showday);
 
 
 function showPosition(position) {
-    let apiKeyHourly = "04309dfb6ed2dc2892d3f618fc121bd0";
-    let apiUrlHourly = 'https://api.openweathermap.org/data/2.5/forecast/hourly?q=${cityInput}&appid=04309dfb6ed2dc2892d3f618fc121bd0&units=imperial';
-
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${
+    position.coords.latitude
+  }&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
 }
-axios.get(apiUrlHourly).then(showTemperature);
+axios.get(apiUrl).then(showTemperature);
 
 function getCurrentPosition(event) {
     event.preventDefault();
