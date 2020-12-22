@@ -45,8 +45,7 @@ weekdays.innerHTML = day;
 function showTemperature(response) {
     document.querySelectorAll("#temp").innerHTML = Math.round(response.data.main.temp);
     document.querySelector("#humidity").innerHTML = response.data.main.humiditiy;
-    document.querySelector("#wind").innerHTML = Math.round(
-        response.data.wind.speed);
+
 }
 
 
