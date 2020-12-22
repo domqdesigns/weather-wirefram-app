@@ -25,10 +25,19 @@ h3.innerHTML = "December " + date + ", 2020 " + hour + ":" + mins;
 
 
 let dayIndex = now.getDay();
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+];
 let day = days[dayIndex];
+
 let weekdays = document.querySelectorAll("#date");
-weekdays.forEach(day);
+weekdays.innerHTML = day;
 
 
 
