@@ -35,7 +35,7 @@ weekdays.forEach(showday);
 
 function showPosition(position) {
     let apiKeyHourly = "04309dfb6ed2dc2892d3f618fc121bd0";
-    let apiUrlHourly = 'https://api.openweathermap.org/data/2.5/forecast/hourly?q=Paris&appid=${apiKeyHourly}&units=imperial';
+    let apiUrlHourly = 'https://api.openweathermap.org/data/2.5/forecast/hourly?q=${cityInput}&appid=04309dfb6ed2dc2892d3f618fc121bd0&units=imperial';
 
 }
 axios.get(apiUrlHourly).then(showTemperature);
@@ -44,12 +44,10 @@ function getCurrentPosition(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(showPosition)
 
-    let currentCity = document.querySelector("#city");
-    currentCity.innerHTML = ('This week in ${city}');
 
 }
 
-let button = document.querySelector("#current-location");
+let currentButton = document.querySelector("#current-location");
 button.addEventListener("click", getCurrentPosition);
 
 
