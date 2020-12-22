@@ -34,8 +34,8 @@ weekdays.forEach(showday);
 
 
 function showPosition(position) {
-    let apiKeyHourly = "fb19ad2cc7b8c692bbffb71e9343e318";
-    let apiUrlHourly = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=Paris&appid=b19ad2cc7b8c692bbffb71e9343e318&units=imperial";
+    let apiKeyHourly = "04309dfb6ed2dc2892d3f618fc121bd0";
+    let apiUrlHourly = 'https://api.openweathermap.org/data/2.5/forecast/hourly?q=Paris&appid=${apiKeyHourly}&units=imperial';
 
 }
 axios.get(apiUrlHourly).then(showTemperature);
