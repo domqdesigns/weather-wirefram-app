@@ -23,10 +23,14 @@ if (mins < 10) {
 h3.innerHTML = "December " + date + ", 2020 " + hour + ":" + mins;
 
 function showPosition(position) {
-    console.log(position.coords.latitude)
-}
+    let apiKeyHourly = "fb19ad2cc7b8c692bbffb71e9343e318";
+    let apiUrlHourly = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=Paris&appid=b19ad2cc7b8c692bbffb71e9343e318&units=imperial";
 
-function getCurrentPosition() {
+}
+axios.get(apiUrlHourly).then(showTemperature);
+
+function getCurrentPosition(event) {
+    event.preventDefault();
     navigator.geolocation.getCurrentPosition(showPosition)
 
     let currentCity = document.querySelector("#city");
@@ -35,11 +39,8 @@ function getCurrentPosition() {
 }
 
 let button = document.querySelector("#current-location");
-event.preventDefault();
 button.addEventListener("click", getCurrentPosition);
 
-let apiKeyHourly = "fb19ad2cc7b8c692bbffb71e9343e318";
-let apiUrlHourly = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=Paris&appid=b19ad2cc7b8c692bbffb71e9343e318&units=imperial";
 
 function showTemperature(response) {
     let temperature = Math.round(response.data.main.temp);
