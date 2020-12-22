@@ -22,6 +22,9 @@ if (mins < 10) {
 }
 h3.innerHTML = "December " + date + ", 2020 " + hour + ":" + mins;
 
+let dayIndex = date.getDay();
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
 function showPosition(position) {
     let apiKeyHourly = "fb19ad2cc7b8c692bbffb71e9343e318";
     let apiUrlHourly = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=Paris&appid=b19ad2cc7b8c692bbffb71e9343e318&units=imperial";
@@ -43,10 +46,7 @@ button.addEventListener("click", getCurrentPosition);
 
 
 function showTemperature(response) {
-    let temperature = Math.round(response.data.main.temp);
-    let hourlyTemp = document.querySelector("#fahrenheit-link");
-    hourlyTemp.innerHTML = temperature + "°F";
+    document.querySelectorAll("#temp").innerHTML = Math.round(response.data.main.temp);
+    document.querySelector("#card-text-h").innerHTML = response.data.main.humiditiy;
 
 }
-
-axios.get(apiUrlHourly).then(showTemperature);
