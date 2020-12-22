@@ -24,6 +24,14 @@ h3.innerHTML = "December " + date + ", 2020 " + hour + ":" + mins;
 
 let dayIndex = date.getDay();
 let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+let day = days[dayIndex];
+
+function showday(dayElement) {
+
+};
+let weekdays = document.querySelectorAll("#date");
+weekdays.forEach(showday);
+
 
 function showPosition(position) {
     let apiKeyHourly = "fb19ad2cc7b8c692bbffb71e9343e318";
