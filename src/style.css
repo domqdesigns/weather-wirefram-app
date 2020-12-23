@@ -14,6 +14,11 @@
      
      li {
          list-style-type: none;
+         font-size: 15px;
+         font-style: oblique;
+         text-align: left;
+         position: relative;
+         left: -40px;
      }
      
      .weather-app {
@@ -44,4 +49,15 @@
      
      .search-form {
          margin-bottom: 20px;
+     }
+     
+     h4 {
+         font-size: 3px;
+         font-style: oblique;
+     }
+     
+     .temp-icon {
+         position: relative;
+         left: 30px;
+         size: 1000px;
      }
